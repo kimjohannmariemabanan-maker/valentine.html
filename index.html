@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💕</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+body {
+  font-family: 'Baloo 2', cursive;
+  background: linear-gradient(#ffe6f0, #ffd6e8);
+  color: #ff4d88;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  background: #fff0f5;
+  border-radius: 30px;
+  padding: 25px;
+  max-width: 520px;
+  margin: 40px auto;
+  box-shadow: 0 10px 25px rgba(255,105,180,0.4);
+  position: relative;
+  z-index: 2;
+}
+
+h1, h2 {
+  margin-bottom: 10px;
+}
+
+button {
+  background: #ffb6c1;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #ff8fab;
+}
+
+#noBtn {
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
+.gif {
+  width: 200px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: float 6s infinite;
+  opacity: 0.6;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Hearts -->
+<script>
+for (let i = 0; i < 15; i++) {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+  document.body.appendChild(heart);
+}
+</script>
+
+<div class="container">
+
+  <h1>Will you be my date this Valentine’s Day? 💕</h1>
+
+  <img class="gif" src="https://media.tenor.com/WmQfD5g2YJMAAAAC/ouran-host-club-anime.gif">
+
+  <br>
+
+  <button onclick="yesClicked()">Yes 💗</button>
+  <button id="noBtn" onmouseover="moveNo()">No 💔</button>
+
+  <p id="wrong" class="hidden">Wrong answer 😤</p>
+
+  <div id="yesSection" class="hidden">
+
+    <h2>YAY! Thank you :&gt; 💖</h2>
+
+    <img class="gif" src="https://media.tenor.com/8Kc0mWkJ6NQAAAAC/kimi-ni-todoke-anime.gif">
+
+    <h2>Where do you want to go? ☕</h2>
+    <label><input type="radio" name="place"> Miau Cafe</label><br>
+    <label><input type="radio" name="place"> La Vie Cafe</label><br>
+    <label><input type="radio" name="place"> Hatte</label>
+
+    <h2>What to do? 🎨</h2>
+    <label><input type="checkbox"> Take lots of pics</label><br>
+    <label><input type="checkbox"> Talk and laugh a lot til our stomach hurts</label><br>
+    <label><input type="checkbox"> Do tiktok trends</label><br>
+    <label><input type="checkbox"> Paint :3</label><br>
+    <label><input type="checkbox"> Just exist next to each other &gt;&lt;</label>
+
+    <h2>After cafe 🌷</h2>
+    <label><input type="checkbox"> Photobooth</label><br>
+    <label><input type="checkbox"> Just walk around</label><br>
+    <label><input type="checkbox"> Go to random stores haha</label>
+
+    <h2>✨ Go home safely with a happy heart &lt;3 ✨</h2>
+
+    <img class="gif" src="https://media.tenor.com/3X9Y8m0n7mAAAAAC/skip-and-loafer-anime.gif">
+
+  </div>
+
+</div>
+
+<script>
+function moveNo() {
+  const noBtn = document.getElementById("noBtn");
+  const wrong = document.getElementById("wrong");
+  noBtn.style.top = Math.random() * 300 + "px";
+  noBtn.style.left = Math.random() * 300 + "px";
+  wrong.classList.remove("hidden");
+}
+
+function yesClicked() {
+  document.getElementById("yesSection").classList.remove("hidden");
+  document.getElementById("wrong").classList.add("hidden");
+}
+</script>
+
+</body>
+</html>
